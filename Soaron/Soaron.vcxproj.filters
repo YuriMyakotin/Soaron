@@ -36,9 +36,6 @@
     <ClCompile Include="Scheduler.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="keccak.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MailerMain.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -72,18 +69,18 @@
     <ClCompile Include="Utils.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="skein.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="skein_block.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Include\blowfish.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Include\Mailer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\sph_keccak.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\sph_types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Include\zconf.h">
@@ -96,6 +93,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Include\Soaron.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\skein.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\brg_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\skein_port.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

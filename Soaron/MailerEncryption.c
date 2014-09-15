@@ -13,7 +13,7 @@ void PrepareEncryption(HSTMT hstmt, lpMailerSessionInfo SI)
 	unsigned char TmpBuf[160];
 	unsigned long long HASH[8];
 	SQLLEN cb;
-	sph_keccak512_context cc;
+	Skein_512_Ctxt_t cc;
 
 	
 	SI->EncData = HeapAlloc(SI->hHeap, HEAP_ZERO_MEMORY, sizeof(EncryptionData));
@@ -25,9 +25,9 @@ void PrepareEncryption(HSTMT hstmt, lpMailerSessionInfo SI)
 	SQLCloseCursor(hstmt);
 	SQLFreeStmt(hstmt, SQL_RESET_PARAMS);
 	memcpy(TmpBuf + cb, SI->HASH, 32);
-	sph_keccak512_init(&cc);
-	sph_keccak512(&cc, TmpBuf, cb + 32);
-	sph_keccak512_close(&cc, HASH);
+	Skein_512_Init(&cc,512);
+	Skein_512_Update(&cc, TmpBuf, cb + 32);
+	Skein_512_Final(&cc, (unsigned char *)HASH);
 
 	blowfish_initiate(&(SI->EncData->ctx), HASH, 56);
 	SI->EncData->PrevDataForDecode = HASH[7];

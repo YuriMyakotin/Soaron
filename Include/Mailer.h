@@ -7,7 +7,7 @@
 */
 
 #include "Soaron.h"
-#include "sph_keccak.h"
+#include "skein.h"
 #include "blowfish.h"
 
 #define PROTO_VER_HI 1

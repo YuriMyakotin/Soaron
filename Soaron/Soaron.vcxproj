@@ -174,7 +174,8 @@ del ..\bin\$(Platform)\*.lib</Command>
     <ClCompile Include="MailerEncryption.c" />
     <ClCompile Include="MailerMain.c" />
     <ClCompile Include="MailerUtils.c" />
-    <ClCompile Include="keccak.c" />
+    <ClCompile Include="skein.c" />
+    <ClCompile Include="skein_block.c" />
     <ClCompile Include="Startup.c" />
     <ClCompile Include="ModuleThread.c" />
     <ClCompile Include="NetmailIn.c" />
@@ -186,10 +187,11 @@ del ..\bin\$(Platform)\*.lib</Command>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Include\blowfish.h" />
+    <ClInclude Include="..\Include\brg_types.h" />
+    <ClInclude Include="..\Include\skein.h" />
+    <ClInclude Include="..\Include\skein_port.h" />
     <ClInclude Include="..\Include\Soaron.h" />
     <ClInclude Include="..\Include\Mailer.h" />
-    <ClInclude Include="..\Include\sph_keccak.h" />
-    <ClInclude Include="..\Include\sph_types.h" />
     <ClInclude Include="..\Include\zconf.h" />
     <ClInclude Include="..\Include\zlib.h" />
     <ClInclude Include="resource.h" />

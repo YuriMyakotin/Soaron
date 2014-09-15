@@ -108,7 +108,7 @@ void GetLoginHash(HSTMT hstmt,unsigned int LinkID,unsigned char * InBuf, unsigne
 {
 	unsigned char TmpBuf[160];
 	SQLLEN cb;
-	sph_keccak256_context cc;
+	Skein_256_Ctxt_t cc1;
 
 	memcpy(TmpBuf, InBuf, 32);
 	SQLBindParameter(hstmt, 1, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, &LinkID, 0, NULL);
@@ -117,10 +117,9 @@ void GetLoginHash(HSTMT hstmt,unsigned int LinkID,unsigned char * InBuf, unsigne
 	SQLGetData(hstmt, 1, SQL_C_WCHAR, (TmpBuf + 32), 128, &cb);
 	SQLCloseCursor(hstmt);
 	SQLFreeStmt(hstmt, SQL_RESET_PARAMS);
-	sph_keccak256_init(&cc);
-	sph_keccak256(&cc, TmpBuf, cb+32);
-	sph_keccak256_close(&cc, OutBuf);
-	
+	Skein_256_Init(&cc1, 256);
+	Skein_256_Update(&cc1, TmpBuf, cb + 32);
+	Skein_256_Final(&cc1, OutBuf);
 
 }
 
